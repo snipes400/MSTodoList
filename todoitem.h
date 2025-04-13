@@ -17,6 +17,16 @@ public:
     ToDoItem();
     ToDoItem(std::string name, std::string desc, int color);
 
+    int id() const;
+
+    void setDone(bool newDone);
+    bool done() const;
+
+    std::string name() const;
+    void setName(const std::string &newName);
+
+    std::string desc() const;
+    void setDesc(const std::string &newDesc);
 };
 
 #endif // TODOITEM_H
