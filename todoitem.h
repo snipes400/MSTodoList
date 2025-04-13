@@ -8,6 +8,7 @@ class TodoItem
 private:
     int m_id;
     bool m_done;
+    bool m_colorInverted;
 
     std::string m_name;
     std::string m_desc;
@@ -27,6 +28,9 @@ public:
 
     std::string desc() const;
     void setDesc(const std::string &newDesc);
+
+    bool colorInverted() const;
+    void setColorInverted(bool newColorInverted);
 };
 
 #endif // TODOITEM_H

@@ -5,7 +5,7 @@ TodoItem::TodoItem() :
 {}
 
 TodoItem::TodoItem(std::string name, std::string desc, int color)
-    : m_done(false), m_name(name), m_desc(desc), m_color(color)
+    : m_done(false), m_name(name), m_desc(desc), m_color(color), m_colorInverted(false)
 {
     static int nextId = 0;
 
@@ -47,3 +47,12 @@ bool TodoItem::done() const
     return m_done;
 }
 
+bool TodoItem::colorInverted() const
+{
+    return m_colorInverted;
+}
+
+void TodoItem::setColorInverted(bool newColorInverted)
+{
+    m_colorInverted = newColorInverted;
+}
