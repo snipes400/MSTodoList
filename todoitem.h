@@ -3,7 +3,7 @@
 
 #include <string>
 
-class ToDoItem
+class TodoItem
 {
 private:
     int m_id;
@@ -14,8 +14,8 @@ private:
     int m_color; // TODO see if there's a better way to represent color
 
 public:
-    ToDoItem();
-    ToDoItem(std::string name, std::string desc, int color);
+    TodoItem();
+    TodoItem(std::string name, std::string desc, int color);
 
     int id() const;
 

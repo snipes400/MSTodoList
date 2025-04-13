@@ -1,10 +1,10 @@
 #include "todoitem.h"
 
-ToDoItem::ToDoItem() :
-    ToDoItem("", "", 0)
+TodoItem::TodoItem() :
+    TodoItem("", "", 0)
 {}
 
-ToDoItem::ToDoItem(std::string name, std::string desc, int color)
+TodoItem::TodoItem(std::string name, std::string desc, int color)
     : m_done(false), m_name(name), m_desc(desc), m_color(color)
 {
     static int nextId = 0;
@@ -12,37 +12,37 @@ ToDoItem::ToDoItem(std::string name, std::string desc, int color)
     m_id = ++nextId;
 }
 
-int ToDoItem::id() const
+int TodoItem::id() const
 {
     return m_id;
 }
 
-std::string ToDoItem::name() const
+std::string TodoItem::name() const
 {
     return m_name;
 }
 
-void ToDoItem::setName(const std::string &newName)
+void TodoItem::setName(const std::string &newName)
 {
     m_name = newName;
 }
 
-std::string ToDoItem::desc() const
+std::string TodoItem::desc() const
 {
     return m_desc;
 }
 
-void ToDoItem::setDesc(const std::string &newDesc)
+void TodoItem::setDesc(const std::string &newDesc)
 {
     m_desc = newDesc;
 }
 
-void ToDoItem::setDone(bool newDone)
+void TodoItem::setDone(bool newDone)
 {
     m_done = newDone;
 }
 
-bool ToDoItem::done() const
+bool TodoItem::done() const
 {
     return m_done;
 }
