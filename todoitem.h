@@ -8,27 +8,28 @@
 class TodoItem : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(bool done READ getDone WRITE setDone NOTIFY isDoneChanged)
+    Q_PROPERTY(bool done READ done WRITE setDone NOTIFY isDoneChanged)
+    Q_PROPERTY(QString title READ title WRITE setTitle NOTIFY titleChanged)
 private:
     int m_id;
     bool m_isDone;
     bool m_colorInverted;
 
-    std::string m_name;
+    QString m_title;
     std::string m_desc;
     int m_color; // TODO see if there's a better way to represent color
 
 public:
     TodoItem();
-    TodoItem(std::string name, std::string desc, int color);
+    TodoItem(QString title, std::string desc, int color);
 
     int id() const;
 
     void setDone(bool newDone);
     bool done() const;
 
-    std::string name() const;
-    void setName(const std::string &newName);
+    QString title() const;
+    void setTitle(const QString &newTitle);
 
     std::string desc() const;
     void setDesc(const std::string &newDesc);
@@ -38,6 +39,7 @@ public:
 
 signals:
     void isDoneChanged(bool isDone);
+    void titleChanged(QString name);
 };
 
 #endif // TODOITEM_H

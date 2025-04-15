@@ -4,8 +4,8 @@ TodoItem::TodoItem() :
     TodoItem("", "", 0)
 {}
 
-TodoItem::TodoItem(std::string name, std::string desc, int color)
-    : m_isDone(false), m_name(name), m_desc(desc), m_color(color), m_colorInverted(false)
+TodoItem::TodoItem(QString title, std::string desc, int color)
+    : m_isDone(false), m_title(title), m_desc(desc), m_color(color), m_colorInverted(false)
 {
     static int nextId = 0;
 
@@ -17,14 +17,18 @@ int TodoItem::id() const
     return m_id;
 }
 
-std::string TodoItem::name() const
+QString TodoItem::title() const
 {
-    return m_name;
+    return m_title;
 }
 
-void TodoItem::setName(const std::string &newName)
+void TodoItem::setTitle(const QString &newTitle)
 {
-    m_name = newName;
+    if(newTitle != m_title)
+    {
+        m_title = newTitle;
+        emit titleChanged(newTitle);
+    }
 }
 
 std::string TodoItem::desc() const
