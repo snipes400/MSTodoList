@@ -7,7 +7,7 @@ class TodoItem
 {
 private:
     int m_id;
-    bool m_done;
+    bool m_isDone;
     bool m_colorInverted;
 
     std::string m_name;

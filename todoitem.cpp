@@ -5,7 +5,7 @@ TodoItem::TodoItem() :
 {}
 
 TodoItem::TodoItem(std::string name, std::string desc, int color)
-    : m_done(false), m_name(name), m_desc(desc), m_color(color), m_colorInverted(false)
+    : m_isDone(false), m_name(name), m_desc(desc), m_color(color), m_colorInverted(false)
 {
     static int nextId = 0;
 
@@ -39,12 +39,12 @@ void TodoItem::setDesc(const std::string &newDesc)
 
 void TodoItem::setDone(bool newDone)
 {
-    m_done = newDone;
+    m_isDone = newDone;
 }
 
 bool TodoItem::done() const
 {
-    return m_done;
+    return m_isDone;
 }
 
 bool TodoItem::colorInverted() const
