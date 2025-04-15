@@ -2,9 +2,13 @@
 #define TODOITEM_H
 
 #include <string>
+#include <QObject>
+#include <QProperty>
 
-class TodoItem
+class TodoItem : public QObject
 {
+    Q_OBJECT
+    Q_PROPERTY(bool done READ getDone WRITE setDone NOTIFY isDoneChanged)
 private:
     int m_id;
     bool m_isDone;
@@ -31,6 +35,9 @@ public:
 
     bool colorInverted() const;
     void setColorInverted(bool newColorInverted);
+
+signals:
+    void isDoneChanged(bool isDone);
 };
 
 #endif // TODOITEM_H

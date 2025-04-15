@@ -39,7 +39,11 @@ void TodoItem::setDesc(const std::string &newDesc)
 
 void TodoItem::setDone(bool newDone)
 {
-    m_isDone = newDone;
+    if(newDone != m_isDone)
+    {
+        m_isDone = newDone;
+        emit isDoneChanged(newDone);
+    }
 }
 
 bool TodoItem::done() const
