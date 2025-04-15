@@ -8,35 +8,40 @@ Window {
     visible: true
     title: qsTr("Hello World")
 
-    ColumnLayout {
+    ScrollView
+    {
         anchors.top : parent.top
         anchors.left : parent.left
         anchors.right: parent.right
         anchors.bottom: addButton.top
 
-        Rectangle {
-            Layout.fillWidth: true
-            //height: 50
-            Layout.fillHeight: true
-            color: "lightblue"
-            Text {
-                anchors.centerIn: parent
-                text: "Item 1"
-            }
-        }
 
-        Rectangle {
-            Layout.fillWidth: true
-            //height: 75
-            Layout.fillHeight: true
-            color: "lightgreen"
-            Text {
-                anchors.centerIn: parent
-                text: "Item 2"
+        contentItem: ColumnLayout {
+            id: columnLayout
+            anchors.fill: parent
+            Rectangle {
+                Layout.fillWidth: true
+                //height: 50
+                Layout.fillHeight: true
+                color: "lightblue"
+                Text {
+                    anchors.centerIn: parent
+                    text: "Item 1"
+                }
+            }
+
+            Rectangle {
+                Layout.fillWidth: true
+                //height: 75
+                Layout.fillHeight: true
+                color: "lightgreen"
+                Text {
+                    anchors.centerIn: parent
+                    text: "Item 2"
+                }
             }
         }
     }
-
     Button {
         id: addButton
         text: "Add Task"
