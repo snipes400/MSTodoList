@@ -26,6 +26,7 @@ Window {
             anchors.fill: parent
 
             Rectangle {
+                id: addTaskPanel
                 Layout.fillWidth: true
                 //height: 75
                 Layout.fillHeight: true
