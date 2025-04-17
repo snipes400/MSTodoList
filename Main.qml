@@ -73,7 +73,7 @@ Window {
                     }
                     Text {
 
-                        text: "Description: "// + myTodoItem.desc
+                        text: "Description: " + myTodoItem.desc
                     }
                     Row {
                         Text {
@@ -98,8 +98,10 @@ Window {
         anchors.right : parent.right
         onClicked: {
             myTodoItem.title = addTaskPanelRepeater.itemAt(0).children[1].text
-            //myTodo
-            //titleTextField.text = ""
+            addTaskPanelRepeater.itemAt(0).children[1].text = ""
+
+            myTodoItem.desc = addTaskPanelRepeater.itemAt(1).children[1].text
+            addTaskPanelRepeater.itemAt(1).children[1].text = ""
         }
     }
 }
