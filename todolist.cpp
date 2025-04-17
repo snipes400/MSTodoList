@@ -9,16 +9,12 @@ void TodoList::addItem(TodoItem* item)
     endInsertRows();
 }
 
-void TodoList::removeItem(const QModelIndex &index)
+void TodoList::removeItem(int index)
 {
-    m_todoItems.remove(index.row());
+    beginRemoveRows(QModelIndex(), index, index);
+    m_todoItems.remove(index);
+    endRemoveRows();
 }
-/*
-TodoItem& TodoList::getItem(int id)
-{
-    return m_todoList.at(id);
-}
-*/
 
 int TodoList::rowCount(const QModelIndex &parent) const
 {
@@ -41,8 +37,6 @@ QVariant TodoList::data(const QModelIndex &index, int role) const
 
 bool TodoList::setData(const QModelIndex &index, const QVariant &value, int role)
 {
-    //auto todoItem = m_todoItems.at(index.row());
-
     auto newTodoItem = qvariant_cast<TodoItem*>(value);
     if(!newTodoItem) {
         return false;

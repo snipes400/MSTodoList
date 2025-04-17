@@ -31,8 +31,7 @@ public slots:
     void addItem(TodoItem* item);
 
 
-    void removeItem(const QModelIndex &index);
-    //TodoItem& getItem(int id);
+    void removeItem(int index);
 
 };
 

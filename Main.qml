@@ -61,7 +61,6 @@ Window {
 
             Rectangle {
                 Layout.fillWidth: true
-                //height: 50
                 Layout.fillHeight: true
                 color: "lightblue"
 
@@ -92,7 +91,7 @@ Window {
                         Button{
                             text: "Remove"
                             onClicked: {
-                                myTodoList.removeItem(todoItemListView.currentIndex)
+                                myTodoList.removeItem(todoItemListView.index)
                             }
                         }
                     }
