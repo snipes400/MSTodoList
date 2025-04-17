@@ -4,7 +4,6 @@
 
 void TodoList::addItem(TodoItem* item)
 {
-    //m_todoList.insert({item.id(), item});
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
     m_todoItems.append(item);
     endInsertRows();
@@ -30,7 +29,7 @@ QHash<int, QByteArray> TodoList::roleNames() const
 {
     QHash<int, QByteArray> roles;
 
-    roles[TodoItemRole] = "TodoItem";
+    roles[TodoItemRole] = "todoitem";
     return roles;
 }
 

@@ -1,7 +1,6 @@
 #ifndef TODOLIST_H
 #define TODOLIST_H
 
-#include <map>
 #include <QAbstractListModel>
 
 class TodoItem;
@@ -28,6 +27,7 @@ public:
     bool setData(const QModelIndex &index, const QVariant &value, int role=Qt::EditRole) override;
 
 
+public slots:
     void addItem(TodoItem* item);
 
 

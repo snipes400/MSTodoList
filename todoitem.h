@@ -1,7 +1,6 @@
 #ifndef TODOITEM_H
 #define TODOITEM_H
 
-#include <string>
 #include <QObject>
 #include <QProperty>
 
@@ -25,7 +24,6 @@ public:
     TodoItem(QObject* parent = nullptr);
     TodoItem(QString title, QString desc, int color, QObject* parent = nullptr);
 
-    int id() const;
 
     void setDone(bool newDone);
     bool done() const;
