@@ -85,6 +85,9 @@ Window {
                             }
                             CheckBox {
                                 checked: todoitem.done
+                                onCheckedChanged: {
+                                    todoitem.done = checked
+                                }
                             }
                         }
 
