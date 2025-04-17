@@ -12,7 +12,7 @@ class TodoItem : public QObject
     Q_PROPERTY(QString desc READ desc WRITE setDesc NOTIFY descChanged)
 
 private:
-    int m_id;
+
     bool m_isDone;
     bool m_colorInverted;
 
