@@ -94,7 +94,7 @@ Window {
                         Button{
                             text: "Remove"
                             onClicked: {
-                                myTodoList.removeItem(todoItemListView.index)
+                                myTodoList.removeItem(index)
                             }
                         }
                     }
