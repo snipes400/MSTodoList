@@ -28,8 +28,7 @@ Window {
             Rectangle {
                 id: addTaskPanel
                 Layout.fillWidth: true
-                //height: 75
-                Layout.fillHeight: true
+                height: 150
                 color: "lightgreen"
                 Column {
                     //anchors.fill: parent
@@ -39,7 +38,7 @@ Window {
                         model: [
                             { text: "Title:"},
                             { text: "Description"},
-                            { text: "Color:"}
+                            { text: "Color (not implemented):"}
                         ]
                         delegate: Row {
                             id: repeaterDelegate
