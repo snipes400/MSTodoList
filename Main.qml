@@ -31,16 +31,31 @@ Window {
                 //height: 75
                 Layout.fillHeight: true
                 color: "lightgreen"
-                Text {
-                    id: titleLabel
-                    text: "Title"
-                    anchors.right: titleTextField.left
-                    anchors.verticalCenter: titleTextField.verticalCenter
-                }
-                TextField {
-                    id: titleTextField
-                    anchors.centerIn: parent
-                    //text: "Item 2"
+                Column {
+                    //anchors.fill: parent
+                    spacing: 10
+                    Repeater {
+                        id: addTaskPanelRepeater
+                        model: [
+                            { text: "Title:"},
+                            { text: "Description"},
+                            { text: "Color:"}
+                        ]
+                        delegate: Row {
+                            id: repeaterDelegate
+                            spacing: 10
+                            //color: modelData.color
+
+                            Text {
+                                id: label
+                                text: modelData.text
+                            }
+
+                            TextField {
+                                id: addItemField
+                            }
+                        }
+                    }
                 }
             }
 
@@ -49,9 +64,29 @@ Window {
                 //height: 50
                 Layout.fillHeight: true
                 color: "lightblue"
-                Text {
-                    anchors.centerIn: parent
-                    text: myTodoItem.title
+
+                Column {
+                    spacing: 10
+                    Text {
+
+                        text: "Title: " + myTodoItem.title
+                    }
+                    Text {
+
+                        text: "Description: "// + myTodoItem.desc
+                    }
+                    Row {
+                        Text {
+                            text: "Done: "
+                        }
+                        CheckBox {
+
+                        }
+                    }
+
+                    Button{
+                        text: "Remove"
+                    }
                 }
             }
         }
@@ -62,8 +97,9 @@ Window {
         anchors.bottom: parent.bottom
         anchors.right : parent.right
         onClicked: {
-            myTodoItem.title = titleTextField.text
-            titleTextField.text = ""
+            myTodoItem.title = addTaskPanelRepeater.itemAt(0).children[1].text
+            //myTodo
+            //titleTextField.text = ""
         }
     }
 }
