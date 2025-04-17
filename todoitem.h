@@ -22,8 +22,8 @@ private:
     int m_color; // TODO see if there's a better way to represent color
 
 public:
-    TodoItem();
-    TodoItem(QString title, QString desc, int color);
+    TodoItem(QObject* parent = nullptr);
+    TodoItem(QString title, QString desc, int color, QObject* parent = nullptr);
 
     int id() const;
 

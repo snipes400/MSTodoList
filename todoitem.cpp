@@ -1,11 +1,12 @@
 #include "todoitem.h"
 
-TodoItem::TodoItem() :
-    TodoItem("", "", 0)
+TodoItem::TodoItem(QObject* parent) :
+    TodoItem("", "", 0, parent)
 {}
 
-TodoItem::TodoItem(QString title, QString desc, int color)
-    : m_isDone(false), m_title(title), m_desc(desc), m_color(color), m_colorInverted(false)
+TodoItem::TodoItem(QString title, QString desc, int color, QObject* parent)
+    : QObject(parent),
+    m_isDone(false), m_title(title), m_desc(desc), m_color(color), m_colorInverted(false)
 {
     static int nextId = 0;
 
