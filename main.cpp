@@ -1,6 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include "todoitem.h"
+#include "todolist.h"
 
 int main(int argc, char *argv[])
 {
@@ -8,7 +9,8 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
-    qmlRegisterType<TodoItem>("com.todolist", 1, 0, "TodoItem");
+    qmlRegisterType<TodoItem>("com.todo", 1, 0, "TodoItem");
+    qmlRegisterType<TodoList>("com.todo", 1, 0, "TodoList");
 
     QObject::connect(
         &engine,

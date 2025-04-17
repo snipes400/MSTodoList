@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import com.todolist
+import com.todo
 
 Window {
     width: 640
@@ -9,8 +9,8 @@ Window {
     visible: true
     title: qsTr("Hello World")
 
-    TodoItem{
-        id: myTodoItem
+    TodoList{
+        id: myTodoList
     }
 
     ScrollView
@@ -65,27 +65,36 @@ Window {
                 Layout.fillHeight: true
                 color: "lightblue"
 
-                Column {
-                    spacing: 10
-                    Text {
+                ListView {
+                    id: todoItemListView
+                    anchors.fill: parent
 
-                        text: "Title: " + myTodoItem.title
-                    }
-                    Text {
+                    model: myTodoList
 
-                        text: "Description: " + myTodoItem.desc
-                    }
-                    Row {
+                    delegate: Column {
+
                         Text {
-                            text: "Done: "
+                            text: "Title: " + todoitem.title
                         }
-                        CheckBox {
+                        Text {
 
+                            text: "Description: " + todoitem.desc
                         }
-                    }
+                        Row {
+                            Text {
+                                text: "Done: "
+                            }
+                            CheckBox {
+                                checked: todoitem.done
+                            }
+                        }
 
-                    Button{
-                        text: "Remove"
+                        Button{
+                            text: "Remove"
+                            onClicked: {
+                                myTodoList.removeItem(todoItemListView.currentIndex)
+                            }
+                        }
                     }
                 }
             }
@@ -97,11 +106,17 @@ Window {
         anchors.bottom: parent.bottom
         anchors.right : parent.right
         onClicked: {
-            myTodoItem.title = addTaskPanelRepeater.itemAt(0).children[1].text
+            let newTodoItem = Qt.createQmlObject('import com.todo 1.0; TodoItem {}', parent);
+
+
+            newTodoItem.title = addTaskPanelRepeater.itemAt(0).children[1].text
             addTaskPanelRepeater.itemAt(0).children[1].text = ""
 
-            myTodoItem.desc = addTaskPanelRepeater.itemAt(1).children[1].text
+            newTodoItem.desc = addTaskPanelRepeater.itemAt(1).children[1].text
             addTaskPanelRepeater.itemAt(1).children[1].text = ""
+
+            myTodoList.addItem(newTodoItem)
+
         }
     }
 }
